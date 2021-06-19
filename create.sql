@@ -1,24 +1,4 @@
-CREATE TABLE publisher (
-  id INTEGER PRIMARY KEY,
-  name TEXT NOT NULL,
-  country TEXT NOT NULL
-);
-
-CREATE TABLE books (
-  id INTEGER PRIMARY KEY,
-  title TEXT NOT NULL,
-  publisher INTEGER, 
-  FOREIGN KEY(publisher) REFERENCES publisher(id)
-);
-
-CREATE TABLE subjects (
-  id INTEGER PRIMARY KEY,
-  name TEXT NOT NULL
-);
-
-CREATE TABLE books_subjects (
-  book INTEGER,
-  subject INTEGER,
-  FOREIGN KEY(book) REFERENCES books(id),
-  FOREIGN KEY(subject) REFERENCES subjects(id)
-);
+create table publisher(id integer primary key,name text,country text);
+create table books(id integer primary key,title text,publisher text,foreign key(publisher) references publisher(id));
+create table subjects(id integer primary key,name text);
+create table books_subjects(book text,subject text,foreign key (book) references books(id),foreign key (subject) references subjects(id));
